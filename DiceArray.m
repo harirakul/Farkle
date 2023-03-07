@@ -48,19 +48,40 @@ classdef DiceArray
         end
 
         function arr = allValues(obj)
+            arr = [];
             for i = 1:6
                 arr = [arr, obj.dice(i).value];
             end
         end  
 
         % Generate melds.
-        function arr = generateMelds(obj)
+        function [score, combos] = generateMelds(obj)
+            score = 0;
+            combos = [];
+
             vals = obj.allValues();
             counts = [];
             for i = 1:6
                 counts = [counts, numel(find(vals==i))];
             end
-            % To Do: finish
+
+            initialCounts =  counts;
+            combos = find(counts >= 3);
+
+            %Deal with combos:
+            while numel(counts(counts >= 3)) > 0
+                idxs = find(counts >= 3); %Indexes where there are combos
+
+                % Update combo scores
+                for i = 1:length(idxs)
+                    counts(idxs(i)) = counts(idxs(i)) - 3;
+                    if (idxs(i) == 1)
+                        score = score + 1000;
+                    else
+                        score = score + idxs(i)*100;
+                    end
+                end
+            end
         end  
     end
 end

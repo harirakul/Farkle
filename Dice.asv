@@ -1,0 +1,17 @@
+classdef Dice
+    properties
+        value
+    end
+    methods
+        function dice = Dice()
+            dice.value = randi([1, 6]);
+        end
+        function rolldice = Dice(dice)
+            dice.value = randi([1, 6]);
+        end
+        function score = comparison(multipledice)
+            number_o
+
+            end
+        end
+end

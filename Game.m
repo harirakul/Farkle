@@ -12,5 +12,6 @@ classdef Game
                 obj.gameOver = false;
             end
         end
+        
     end
 end

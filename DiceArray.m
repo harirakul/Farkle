@@ -6,16 +6,16 @@ classdef DiceArray
         function obj = DiceArray()
             rolls = randi(6, 1, 6);
             for i = 1:6
-                dice(i).value = rolls(i);
-                dice(i).selected = false;
+                obj.dice(i).value = rolls(i);
+                obj.dice(i).selected = false;
             end
         end
 
         function obj = rollSelected(obj)
             rolls = randi(6, 1, 6);
             for i = 1:6
-                if dice(i).selected == true
-                    dice(i).value = rolls(i);
+                if obj.dice(i).selected == true
+                    obj.dice(i).value = rolls(i);
                 end
             end
         end

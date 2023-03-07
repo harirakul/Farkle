@@ -1,4 +1,4 @@
-% FIX: issue with selection not changing.
+% FIX: issue with selection not changing - try now(Ria)
 classdef Dice
     properties
         value
@@ -18,12 +18,12 @@ classdef Dice
             if obj.selected
                 obj.selected = false;
             else
-                obj.selected = true
+                obj.selected = true;
             end
         end
 
-        function obj = setValue(value)
-            obj.value = value
+        function obj = setValue(obj, value)
+            obj.value = value;
         end
 
         function d = double(obj)

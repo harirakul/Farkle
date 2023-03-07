@@ -1,23 +1,34 @@
+% FIX: issue with selection not changing.
 classdef Dice
     properties
-        value        numeric
-        selected     logical
+        value
+        selected
     end
     methods
-        function dice = Dice()
-            obj.value = randi([1, 6]);
+        function obj = Dice()
+            obj.value = randi(6);
+            obj.selected = false;
         end
 
-        function rolldice()
-            obj.value = randi([1, 6]);
+        function obj = roll(obj)
+            obj.value = randi(6);
         end
 
-        % function score = comparison(multipledice)
-        %     number_of_dice = numel(multipledice);
-        %     score = zeros(multipledice, multipledice);
-        %     for (i = 1:number_of_dice)
-        %         for (j = i+1:number_of_dice)
-        %             if (multipledice()
+        function obj = changeSelection(obj)
+            if obj.selected
+                obj.selected = false;
+            else
+                obj.selected = true
+            end
+        end
+
+        function obj = setValue(value)
+            obj.value = value
+        end
+
+        function d = double(obj)
+            d = obj.value;
+        end
 
     end
 end

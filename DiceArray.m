@@ -1,3 +1,4 @@
+% 
 classdef DiceArray
     properties
         dice = struct();
@@ -58,9 +59,15 @@ classdef DiceArray
             vals = obj.allValues();
             counts = [];
             for i = 1:6
-                counts = [counts, numel(find(vals==i))];
+                counts = [counts, numel(find(vals == i))];
             end
             % To Do: finish
         end  
+        
+        % return value of dice selected 
+        function valueselected = getValue(obj)
+            
+        % section out values to count score properly
+        function
     end
 end

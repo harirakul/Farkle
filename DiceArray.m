@@ -84,11 +84,5 @@ classdef DiceArray
                 end
             end
         end  
-        
-        % return value of dice selected 
-        function valueselected = getValue(obj)
-            
-        % section out values to count score properly
-        function
     end
 end

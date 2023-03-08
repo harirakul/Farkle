@@ -1,4 +1,4 @@
-% 
+
 classdef DiceArray
     properties
         dice = struct();

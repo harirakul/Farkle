@@ -12,7 +12,6 @@ classdef DiceArray
             end
         end
 
-
         % function obj = rollSelected(obj)
         %     rolls = randi(6, 1, 6);
         %     for i = 1:6
@@ -41,6 +40,7 @@ classdef DiceArray
 
         % Return an array of values that are selected
         function arr = selectedValues(obj)
+            arr = [];
             for i = 1:6
                 if (obj.dice(i).selected)
                     arr = [arr, obj.dice(i).value];
@@ -56,9 +56,9 @@ classdef DiceArray
         end  
 
         % Generate melds.
-        function [score, combos] = generateMelds(obj)
+        function [score, triples, numFives, numOnes, hasMeld] = generateMelds(obj)
             score = 0;
-            combos = [];
+            triples = [];
 
             vals = obj.allValues();
             counts = [];
@@ -66,8 +66,8 @@ classdef DiceArray
                 counts = [counts, numel(find(vals == i))];
             end
 
-            initialCounts =  counts;
-            combos = find(counts >= 3);
+            initialCounts = counts;
+            triples = find(counts >= 3);
 
             %Deal with combos:
             while numel(counts(counts >= 3)) > 0
@@ -83,6 +83,12 @@ classdef DiceArray
                     end
                 end
             end
+
+            numFives = counts(5);
+            score = score + 50*numFives;
+            numOnes = counts(1);
+            score = score + 100*numOnes;
+            hasMeld = score > 0;
         end  
     end
 end

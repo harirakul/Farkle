@@ -56,14 +56,14 @@ classdef DiceArray
         end  
 
         % Generate melds.
-        function [score, triples, numFives, numOnes, hasMeld] = generateMelds(obj)
+        function [score, triples, numFives, numOnes, hasMeld] = generateMelds(obj, value)
             score = 0;
             triples = [];
 
-            vals = obj.allValues();
+            %vals = obj.allValues();
             counts = [];
             for i = 1:6
-                counts = [counts, numel(find(vals == i))];
+                counts = [counts, numel(find(value == i))];
             end
 
             initialCounts = counts;

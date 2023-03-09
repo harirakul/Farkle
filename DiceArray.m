@@ -48,6 +48,15 @@ classdef DiceArray
             end
         end
 
+        function arr = unselectedValues(obj)
+            arr = [];
+            for i = 1:6
+                if (~obj.dice(i).selected)
+                    arr = [arr, obj.dice(i).value]
+                end
+            end
+        end
+
         function arr = allValues(obj)
             arr = [];
             for i = 1:6
@@ -56,11 +65,11 @@ classdef DiceArray
         end  
 
         % Generate melds.
-        function [score, triples, numFives, numOnes, hasMeld] = generateMelds(obj)
+        function [score, triples, numFives, numOnes, hasMeld] = generateMelds(obj, vals)
             score = 0;
             triples = [];
 
-            vals = obj.allValues();
+            %vals = obj.allValues();
             counts = [];
             for i = 1:6
                 counts = [counts, numel(find(vals == i))];

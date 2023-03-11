@@ -124,5 +124,11 @@ classdef DiceArray
         function d = getValue(obj, idx)
             d = obj.dice(idx).value
         end
+
+        function obj = unselectAll(obj)
+            for i = 1:6
+                obj.dice(i).selected = false;
+            end
+        end
     end
 end

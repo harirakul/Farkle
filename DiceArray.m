@@ -119,6 +119,10 @@ classdef DiceArray
             numOnes = counts(1);
             score = score + 100*numOnes;
             hasMeld = score > 0;
-        end  
+        end 
+
+        function d = getValue(obj, idx)
+            d = obj.dice(idx).value
+        end
     end
 end

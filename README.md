@@ -1,5 +1,8 @@
 # ENG 006 Final Project
 
+To run the game, run main.mlapp.
+
+
 Project name: Farkle Dice Game
 
 Main goal: 

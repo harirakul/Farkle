@@ -1,9 +1,21 @@
+% TO DO
+% Restrict selection, such that user can only set aside dice that are part of a meld
+% Grey out or restrict Roll Dice button until User selects atleast 1 more dice per turn.
+% Farkle - discard selections, 0 points, switch turn
+% Bank Points - automatically get highest score, even if unselected.
+% End Game when 10,000 pts reached.
+
+% EXTRA
+% Make the dice selection background frame thingy look better.
+
 
 classdef DiceArray
     properties
         dice = struct();
+       % selectedDice = 0;
     end
     methods
+        
         function obj = DiceArray()
             rolls = randi(6, 1, 6);
             for i = 1:6
@@ -27,7 +39,7 @@ classdef DiceArray
         end
 
         % Return a logical value if the die at the input idx is selected
-        function L = selected(obj, idx)
+        function L = isSelected(obj, idx)
             L = obj.dice(idx).selected;
         end
 
@@ -44,6 +56,16 @@ classdef DiceArray
             for i = 1:6
                 if (obj.dice(i).selected)
                     arr = [arr, obj.dice(i).value];
+                end
+            end
+        end
+
+        function arr = selectedIndices(obj)
+            arr = [];
+            for i = 1:6
+                if (obj.dice(i).selected) 
+                    %& ((obj.dice(i).value == 1) | ((obj.dice(i).value == 5)) | ((obj.dice(i).selected == obj.dice(i).generateMelds().triples))) 
+                    arr = [arr, i]
                 end
             end
         end
@@ -69,7 +91,6 @@ classdef DiceArray
             score = 0;
             triples = [];
 
-            %vals = obj.allValues();
             counts = [];
             for i = 1:6
                 counts = [counts, numel(find(vals == i))];
@@ -87,7 +108,7 @@ classdef DiceArray
                     counts(idxs(i)) = counts(idxs(i)) - 3;
                     if (idxs(i) == 1)
                         score = score + 1000;
-                    else
+                    else 
                         score = score + idxs(i)*100;
                     end
                 end

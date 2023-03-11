@@ -16,15 +16,21 @@ classdef Game
         end
 
         function changeplayerturn = changeTurn(obj)
-            if strcmp(currPlayer, "P1")
+            if strcmp(obj.currPlayer, "P1")
                 obj.currPlayer = "P2";
             else
                 obj.currPlayer = "P1";
             end
+
+            if obj.p1.score == 0 && obj.p2.score == 0
+                obj.gameOver = true;
+                farkle = sprintf("Farkle!");
+                disp(farkle);
+            end
         end
 
         function gamestatus = playerStatus(obj)
-            if strcmp(currPlayer, "P1")
+            if strcmp(obj.currPlayer, "P1")
                 gamestatus = sprintf("Game status: %s's turn", obj.p1.name);
             else
                 gamestatus = sprintf("Game status: %s's turn", obj.p2.name);

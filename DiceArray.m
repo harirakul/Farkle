@@ -8,6 +8,14 @@
 % EXTRA
 % Make the dice selection background frame thingy look better.
 
+% current scoring is god
+% Player Turn (1 or -1) for p1 or p2 respectively
+% Restrict rolling if not your turn.
+
+% EXTRA
+% Synchronize dice values across both screens
+
+
 
 classdef DiceArray
     properties

@@ -73,7 +73,7 @@ classdef DiceArray
             for i = 1:6
                 if (obj.dice(i).selected) 
                     %& ((obj.dice(i).value == 1) | ((obj.dice(i).value == 5)) | ((obj.dice(i).selected == obj.dice(i).generateMelds().triples))) 
-                    arr = [arr, i]
+                    arr = [arr, i];
                 end
             end
         end
@@ -82,7 +82,7 @@ classdef DiceArray
             arr = [];
             for i = 1:6
                 if (~obj.dice(i).selected)
-                    arr = [arr, obj.dice(i).value]
+                    arr = [arr, obj.dice(i).value];
                 end
             end
         end

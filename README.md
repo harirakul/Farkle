@@ -1,7 +1,6 @@
 # ENG 006 Final Project
 
 To run the game, run main.mlapp.
-YT Video: https://www.youtube.com/watch?v=dNyZvB2m9hA
 
 Project name: Farkle Dice Game
 

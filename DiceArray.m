@@ -1,21 +1,3 @@
-% TO DO
-% Restrict selection, such that user can only set aside dice that are part of a meld
-% Grey out or restrict Roll Dice button until User selects atleast 1 more dice per turn.
-% Farkle - discard selections, 0 points, switch turn
-% Bank Points - automatically get highest score, even if unselected.
-% End Game when 10,000 pts reached.
-
-% EXTRA
-% Make the dice selection background frame thingy look better.
-
-% current scoring is god
-% Player Turn (1 or -1) for p1 or p2 respectively
-% Restrict rolling if not your turn.
-
-% EXTRA
-% Synchronize dice values across both screens
-
-
 
 classdef DiceArray
     properties
